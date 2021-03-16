@@ -25,7 +25,8 @@
 }
 
 .listItem__button {
-    padding: 7px 12px;
+    padding: 10px;
+    text-decoration: none;
     font-weight: 500;
     background: none;
     border: 2px solid #1E58FF;

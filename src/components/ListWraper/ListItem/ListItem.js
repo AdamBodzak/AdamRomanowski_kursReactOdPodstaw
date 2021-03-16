@@ -1,14 +1,17 @@
 import React from 'react';
 import './ListItem.css'
-import danabramov from '../../../assets/images/danabramov.jpg'
 
-const ListItem = ({name, description, image}) => (
+const ListItem = ({name, description, image, link}) => (
     <li className="listItem__wrapper">
-        <img src={image} className="listItem__image"/>
+        <img
+            src={image}
+            className="listItem__image"
+            alt={name}
+        />
         <div>
             <h2 className="listItem__name">{name}</h2>
             <p className="listItem__description">{description}</p>
-            <button className="listItem__button">visit twitter page</button>
+            <a href={link} className="listItem__button">visit twitter page</a>
         </div>
     </li>
 );
