@@ -1,7 +1,7 @@
 import React from 'react';
 import './ListItem.css'
 
-const ListItem = ({name, description, image, link}) => (
+const ListItem = ({name, description, image, twitterLink}) => (
     <li className="listItem__wrapper">
         <img
             src={image}
@@ -11,7 +11,7 @@ const ListItem = ({name, description, image, link}) => (
         <div>
             <h2 className="listItem__name">{name}</h2>
             <p className="listItem__description">{description}</p>
-            <a href={link} className="listItem__button">visit twitter page</a>
+            <a href={twitterLink} className="listItem__button">visit twitter page</a>
         </div>
     </li>
 );
