@@ -1,9 +1,15 @@
 import React from 'react';
 
 class MyComponent extends React.Component {
+    state = {
+        text: 'Przykład',
+    }
     render() {
         return (
-            <h1>Hello World</h1>
+            <>
+                <input placeholder="Your text" />
+                <h1>{this.state.text}</h1>
+            </>
         )
     }
 };
