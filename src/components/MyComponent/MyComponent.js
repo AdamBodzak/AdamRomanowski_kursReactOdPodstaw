@@ -4,10 +4,16 @@ class MyComponent extends React.Component {
     state = {
         text: 'Przykład',
     }
+
+    handleChange = () => console.log('change');
+
     render() {
         return (
             <>
-                <input placeholder="Your text" />
+                <input
+                    placeholder="Your text"
+                    onChange={this.handleChange}
+                />
                 <h1>{this.state.text}</h1>
             </>
         )
