@@ -13,6 +13,7 @@ class MyComponent extends React.Component {
                 <input
                     placeholder="Your text"
                     onChange={this.handleChange}
+                    value={this.state.text}
                 />
                 <h1>{this.state.text}</h1>
             </>
