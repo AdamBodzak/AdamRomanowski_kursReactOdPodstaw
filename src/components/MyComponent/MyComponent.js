@@ -5,7 +5,7 @@ class MyComponent extends React.Component {
         text: 'Przykład',
     }
 
-    handleChange = () => console.log('change');
+    handleChange = (e) => this.setState({ text: e.target.value });
 
     render() {
         return (
