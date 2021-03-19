@@ -1,8 +1,9 @@
 import React from 'react';
 import ListWrapper from './components/ListWraper/ListWrapwer';
+import Form from './components/Form/Form';
 import './index.css';
 
-const initialStateArray = [
+const initialStateItems = [
     {
         image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSExIWFRUVFxUXFRcXFxUXFxcVFxcXFxUVFxUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFw8QFS0dFx0tKy0tLS0rKy0tKy0tLSstLS0tLSsyLSstLS0tLSstNzcrLS03NystNDcrLS0tLS0tK//AABEIAN8A4gMBIgACEQEDEQH/xAAcAAADAQEBAQEBAAAAAAAAAAAAAQIIAwQHBQb/xABGEAACAQIBBQkMBwcFAAAAAAAAAQIDEQQFByExcQYSF1FUc5OhsRQlNUFTcpGywdHS0yNSYYOSo/AiMjNEY4HCEzR0s+H/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EAB8RAQEBAAICAwEBAAAAAAAAAAABEQISQVETITEDYf/aAAwDAQACEQMRAD8A+nRiUgTKjE8sjsZEkdBMo5WKSFcaZMBYHEN8IoEgsCLRMQRgPelDLghRHvShXKBRKjESRSYFWJsPfBEodikSMYh2HYSY0yhjJGmBVi0iSkQJoVipEkV66epbEAU9S2IDTD8ZIoEh2MtuGMxMKUJVKklGEU5Sk9SS1tn8/Pdzk3llL0v3Ho3dvvfiuZqdhmqZGvDREt3WTuV0vS/cJ7vsm8sp+ifwmdBNFw+mjOEDJvK6fon8JMs4eS1/Nr8FZ9kDOiGi9VyNEPORkvlS6Kv2/wCmCzk5L5Uuir+2mZ3SGiZ/pkaHjnLyXyn8qv8ALGs5mS+VemlXX+BnhoLFwyNC8JuS1/Mt7KOI+ATzoZK5RLoa/wABnpDTGJjQjzpZK8vJ/c1/gFwp5M8tPoavwmfB3GGNA8KmTPLT6Gr8I+FXJnlp9DW9sTPjEmMMjQfCrkzytToanuFwr5M8pU6Gp7jPyY96DI+/vOzk361Z/dP2snhayd/X6NfGfA0UiGR954XcnfVxHRx+MTzwZP8AqYjo4fMPhCY0hq5H3qlnewEmoqniNLSX7FPW/vD6LEyRhF+3Dzo9qNbLWxKxygYhtAUemnqWxAFN6FsQFYflWAaQMjb+e3eeD8XzFT1WZpkaY3deD8XzFX1GZpkieWvDkxNjkgZoIkYWKHHQNMSEokVdxfr9IVgQBEuwrDIAmTC4XKGmxMe9BS0gNMLiYWIKUrjuSkXFEDQyUUQejCy/ajtXaa38f9zItHQ0/tNcQYjPJVhtADZpl3hqWwAhqWwCsvzCWyiWGn4m7X/YYv8A49b/AK5GZpGlt3Dtk/F8xV9VozTNGfLc/HMmQxGsCG0VYlAwRGmUkJBSZJ0TJkIJKDe6BNBFWEojiNoihsVhhvQCSJLZMmEUkOOsSZaRFMLEpFmaOsDXFJaEZHpLSa4p6rF4s8lWGMLm2HaGpCHDUgKj8pCYDI0/n93fg7F8xU9UzVI0xu5Xe/F8xV9VmaGYv63PxykSVJkXNxFXEiUUtAWKsAJiuRTbJkFwZZEDQ0CQACKSEh74ih6xom4gLvpBkIBiKbKiyEi6aFUy0yGwTM4PRFmtqD0LYjI8HoNbYb92Oxdg4s8noQMSA2w7w1IQ4alsAI/JGIaI2/C3d+DsXzFX1WZmkzTG7vwdi+Yq+qzMzZPKxEmS0VcVzQcUAJjZFFxMIgymEkA4kyQVaYNEoaYwOwIaGQSA29AggaJky0RJCATLSEkXFCh2CKsAGVdYGuqK0LYZEhK2ni0+g11h53SfGk/SOP6zydUJjFJmmHohqWwQ6epbEBUflAgQyNPwN3vg7F8xU7DMsjTW7597sXzFTsMysjURJDExxNKN6VvQTHJkEtEspkMsFxQhpktBTbCwhgXFAyQTIKFFANEBcTZSQbwIlspE1FqJKOiHciEhog7X0Gt8F+5HzY9iMjX0GuMCvo4eZHsQicnoECC5WHpp6lsQBT1LYgKy/KQ0SiiRt/P7v/B2L5ip2GZGac3e+DsZzFX1WZkYaQAMbRoDYt8JsTkBdxC3xKYFi3wXEmFUmO5OgqjUlG+9bV007NptPWtHiApMLgkFjILg2QOJcHWJMmJMZBDBSGwiVAhoBpkopPQa6wD+jh5kexGRnqNcYD+HDzI9iInJ6SZFJCkVHqp6lsQh01oWxCKw/KQ0IEZdH4W7zwdjOYq+qzMbNN5wH3txnMVPVZmNssAid8S5Eo3irFKxLZLYwXYESmDKLuK4gTIpsolOwnII7qWglSOcWVJkwU5DZyaKuMFsVybj+0AH/wCklIBocRDRKOviNcYH+HDzY9iMjeI1vgF9HDzY9iMpXquJscRSYR66WpbEAU9S2IDTD8gaJRRh0fg7v33txfMVOwzDJmnN3/g3F8xU9VmYps1xVEkArjsdE0iUNgihqIDixsikIQ0ANCBoLFRUZAxARVDTEmNsipYxDCG2Cf6/sIaQDTKiyRpEHZajXOB/hw8yPYjIq1PYa6wL+jh5kexGEr0ikCFJhHsp6lsQgpvQtiA0y/IQ0yUykYjb+eziO2TcW/6MuuyMxzZpfOU+9mL5r/KN/aZmkb4FQNPxAxHRANSJAC0xyZCGFOI1tJEmBbBEXHcgbQ2iQYDuFwsDiAXAGxAWNEJlRQNUhxIKiRXfxGt8nv6Kn5kfVRkS+hmu8ArU4eZHsRzqV6iZMLggj10tS2IB01oWxAaZfjpBcmIzk6P5fOVLvZi+b7ZwM03NK5zV3sxfNr14GabHT+X5UoEwYWOrIsA7CaAdxMLBYASAB2CkMLAAx3CLEwpoAQmiKTYDSGVBEYh+59hAmUmKwRQHW+h7DXeTpXpU3xwh1xRkS2vYa3yU/oaXN0/URz5D2FEFGR66epbEMKepbEBth+IhoUSrHB0fg7ucBUr4DEUaUd9UnC0Y3Su99F2u2lqTPhsc2+VeRvpaHzDSCEzfHliVm/gzyryT87D/ADB8GeVeSfnYf5hoxsVzXyUZ14NMq8k/Ow/zDrSzW5Vl/LxjtrUfZJmhky0PkpjPfBNlTyVLpoAs02VPJ0umgaFQx8lRntZpMqeTpdNAqOaPKn1KS+9XsRoO40y96rPfBHlP6lHpV7jpDM/lJ+QW2q/ZA0AxXHeo+CRzN5R+vhukqfLGszeUPKYXpKvspH3q4rE70fCY5mcf5bCfjr/JDgax/lsJ+Ov8k+8WEO1NfCo5mMd5fC/ir/KOkcy2L8eJw62f6r/wR9xiDL2o+J8CeI5XR/BUOizJ1uWUujn7z7SDZO1HxfgUrcsp9FP4i1mTq8th0UvjPstwuO1Hxt5k63LafRS+M+x4KjvKcIPTvYRjfj3qSv1HRMZm3VVcu5zTLIPdT1LYgCnqWxAdWH4EZ2OiGsDPi617zrDBS4us4ScvTp9OREpHpeCnxdaIeAl40vSLOXiGxwkyLnp7inxdYdxT4l6S5y9JsedHSLOvcc+LrDuKfEvSTry9GxzSA6rBz/TGsFPiXpRc5ejZ7cmB17hn4kvSh9xT4l6UMvo2OO+Fc7RwVTi60V3FPi60XL6NjjcSZ6Fgp8XWg7hnxdZet9JsckJs9Hck+LrF3HPi6y5fR9ORNj0rCS4usHhZcXWhlHnCx6O5JcXWHckuLrQymvMNHfuSXF1oHg5cXWTrfRrkVGVjqsJLi6xvCS4uslnJdjzuq7l05lSwMrq1vtuw7kmlqTem2n7NBxk/p2+41bxx7MPK8IvjiuwRWGg4wimtKik9qQHqluOb/9k=',
         name: 'Dan Abramov',
@@ -31,13 +32,22 @@ const initialStateArray = [
 
 class App extends React.Component {
     state = {
-        items: [...initialStateArray],
+        items: [...initialStateItems],
+    }
+
+    addItem = (e) => {
+        e.preventDefault();
+        console.log(e.target[0].value);
+        console.log(e.target[1].value);
+        console.log(e.target[2].value);
+        console.log(e.target[3].value);
     }
 
     render() {
         return (
             <div>
                 <ListWrapper items={this.state.items} />
+                <Form submitFn={this.addItem} />
             </div>
         )
     }
