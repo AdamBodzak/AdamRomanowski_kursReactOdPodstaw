@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './App'
+import Root from './Viuws/Root/Root'
+import './index.css';
 
 ReactDom.render(
-    <App />,
+    <Root />,
     document.getElementById('root')
 );
