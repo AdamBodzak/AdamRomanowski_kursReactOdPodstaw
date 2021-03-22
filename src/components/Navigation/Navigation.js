@@ -1,11 +1,40 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from './Navigation.module.scss';
 
-const Navigation = () => (
-    <ul>
-        <li><a href="/">Twitter</a></li>
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/notes">Notes</a></li>
-    </ul>
+const nav = () => (
+    <nav>
+        <ul className={styles.wrapper}>
+            <li className={styles.navItem}>
+                <NavLink
+                    exact
+                    activeClassName={styles.navItemLinkActive}
+                    className={styles.navItemLink}
+                    to="/"
+                >
+                    twitter
+                </NavLink>
+            </li>
+            <li className={styles.navItem}>
+                <NavLink
+                    activeClassName={styles.navItemLinkActive}
+                    className={styles.navItemLink}
+                    to="/articles"
+                >
+                    articles
+                </NavLink>
+            </li>
+            <li className={styles.navItem}>
+                <NavLink
+                    activeClassName={styles.navItemLinkActive}
+                    className={styles.navItemLink}
+                    to="/notes"
+                >
+                    notes
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
 );
 
-export default Navigation;
+export default nav;
