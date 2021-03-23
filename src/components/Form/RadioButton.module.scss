@@ -1,0 +1,26 @@
+.classInput {
+    display: none;
+}
+
+.classLabel {
+    display: flex;
+    padding-right: 20px;
+    padding-top: 15px;
+    font-weight: 700;
+    color: #1e58ff;
+
+    &::before {
+        display: inline-block;
+        content: "";
+        width: 15px;
+        height: 15px;
+        border: 2px solid #1e58ff;
+        border-radius: 50%;
+        background-color: white;
+        margin-right: 5px;
+    }
+
+    .classInput:checked + &::before {
+        background-color: #1e58ff;
+    }
+}

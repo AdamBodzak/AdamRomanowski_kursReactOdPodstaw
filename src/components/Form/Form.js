@@ -3,6 +3,7 @@ import styles from './Form.module.scss';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import RadioButton from './RadioButton';
 
 const types = {
   twitter: 'twitter',
@@ -29,27 +30,29 @@ handleRadioButtonChange = (type) => (
         <div className={styles.wrapper}>
         <Title>Add new {descriptions.[this.state.activeOption]}</Title>
         <form autoComplete='off' className={styles.form} onSubmit={this.props.submitFn}>
-          <input
-            id={types.twitter}
-            type="radio"
-            checked={this.state.activeOption === types.twitter}
-            onChange={() => this.handleRadioButtonChange(types.twitter)}
-          />
-          <label for={types.twitter}>Twitter</label>
-          <input
-            id={types.article}
-            type="radio"
-            checked={this.state.activeOption === types.article}
-            onChange={() => this.handleRadioButtonChange(types.article)}
-          />
-          <label for={types.article}>Article</label>
-          <input
-            id={types.note}
-            type="radio"
-            checked={this.state.activeOption === types.note}
-            onChange={() => this.handleRadioButtonChange(types.note)}
-          />
-          <label for={types.note}>Note</label>
+          <div className={styles.formOptions}>
+            <RadioButton
+              id={types.twitter}
+              checked={this.state.activeOption === types.twitter}
+              changeFn={() => this.handleRadioButtonChange(types.twitter)}
+            >
+              Twitter
+            </RadioButton>
+            <RadioButton
+              id={types.article}
+              checked={this.state.activeOption === types.article}
+              changeFn={() => this.handleRadioButtonChange(types.article)}
+            >
+              Article
+            </RadioButton>
+            <RadioButton
+              id={types.note}
+              checked={this.state.activeOption === types.note}
+              changeFn={() => this.handleRadioButtonChange(types.note)}
+            >
+              Note
+            </RadioButton>
+          </div>
 
           <Input
             name="name"
