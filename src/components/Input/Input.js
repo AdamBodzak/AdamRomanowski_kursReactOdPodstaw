@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.scss';
 
-const Input = ({tag: Tag, text, name, label, maxLength, required}) => {
+const Input = ({tag: Tag, text, name, label, maxLength, required, ...props}) => {
 
     return(
         <div className={styles.formItem}>
@@ -14,6 +14,7 @@ const Input = ({tag: Tag, text, name, label, maxLength, required}) => {
                 placeholder=" "
                 required={required}
                 maxLength={maxLength}
+                {...props}
             />
             <label className={styles.label} htmlFor={name}>
                 {label}

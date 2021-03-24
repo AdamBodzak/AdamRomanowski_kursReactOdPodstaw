@@ -7,36 +7,29 @@ import TwittersView from '../TwittersView/TwittersView';
 import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
 
-
-const initialStateItems = [
-    {
-      image: "https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp.jpg",
-      name: "Dan Abramov",
-      description: "The creator of React",
-      twitterLink: "https://twitter.com/dan_abramov"
-    }
-  ];
-
 class Root extends React.Component {
     state = {
-        items: [...initialStateItems],
+        items: {
+            twitter: [],
+            articles: [],
+            notes: [],
+        },
         isModalOpen: false,
-        name: 'Roman',
     }
 
     addItem = (e) => {
         e.preventDefault();
 
-        const newItem = {
-            name: e.target[0].value,
-            twitterLink: e.target[1].value,
-            image: e.target[2].value,
-            description: e.target[3].value,
-        };
-        this.setState(prevState => ({
-            items: [...prevState.items, newItem],
-        }));
-        e.target.reset();
+        // const newItem = {
+        //     name: e.target[0].value,
+        //     twitterLink: e.target[1].value,
+        //     image: e.target[2].value,
+        //     description: e.target[3].value,
+        // };
+        // this.setState(prevState => ({
+        //     items: [...prevState.items, newItem],
+        // }));
+        // e.target.reset();
     }
 
     openModal = () => {
@@ -52,9 +45,14 @@ class Root extends React.Component {
 
     render() {
         const { isModalOpen } = this.state;
+        const contextElements = {
+            ...this.state,
+            addItem: this.addItem,
+        }
+
         return (
             <BrowserRouter>
-                <AppContext.Provider value={this.state.name}>
+                <AppContext.Provider value={contextElements}>
                 <Header openModalFn={this.openModal} />
                 <Switch>
                     <Route exact path="/" component={TwittersView} />

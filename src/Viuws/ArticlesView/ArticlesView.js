@@ -4,7 +4,7 @@ import AppContext from '../../context';
 const ArticlesView = () => (
     <AppContext.Consumer>
         {(context) => (
-            <p>This ia {context}</p>
+            <p>This ia an Articles View</p>
         )}
     </AppContext.Consumer>
 );
