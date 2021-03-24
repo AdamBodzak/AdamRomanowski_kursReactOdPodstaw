@@ -9,7 +9,7 @@ import Modal from '../../components/Modal/Modal';
 
 class Root extends React.Component {
     state = {
-        twitter: [],
+        twitter: [], 
         article: [],
         note: [],
         isModalOpen: false,
