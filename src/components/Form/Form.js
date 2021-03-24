@@ -78,7 +78,6 @@ const { type } = this.state
                 value={this.state.title}
                 name="title"
                 label={type === types.twitter ? "Twitter Name" : "Title"}
-                maxLength="30"
               />
               { type !== types.note ?
                 <Input
