@@ -3,6 +3,8 @@
 ### Ostateczna wersja aplikacji dostępna jest pod adresem https://adam-romanowski-kurs-react-od-podstaw.vercel.app/
 
 ***
+Jest to prawie 5 godzinny kurs pod nazwą **React od podstaw** stworzony przez **Adam Romański** dostępny na platformie eduweb.pl pod adresem https://eduweb.pl/programowanie-i-www/reactjs/react-od-podstaw
+
 Skrócony zakres zagadnień poruszonych w ramach kursu:
 
 1. komponenty funkcyjne.
