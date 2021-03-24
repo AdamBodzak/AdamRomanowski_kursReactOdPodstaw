@@ -6,12 +6,13 @@ import NotesView from '../NotesView/NotesView';
 import TwittersView from '../TwittersView/TwittersView';
 import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
+import initialState from '../../initialState';
 
 class Root extends React.Component {
     state = {
-        twitter: [], 
-        article: [],
-        note: [],
+        twitter: [...initialState.twitter],
+        article: [...initialState.article],
+        note: [...initialState.note],
         isModalOpen: false,
     }
 
