@@ -1,10 +1,11 @@
 import React from 'react';
+import ListWrapper from '../../components/ListWraper/ListWrapwer';
 import AppContext from '../../context';
 
 const ArticlesView = () => (
     <AppContext.Consumer>
         {(context) => (
-            <p>This ia an Articles View</p>
+            <ListWrapper items={context.article}/>
         )}
     </AppContext.Consumer>
 );

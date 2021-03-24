@@ -1,7 +1,13 @@
 import React from 'react';
+import ListWrapper from '../../components/ListWraper/ListWrapwer';
+import AppContext from '../../context';
 
 const NotesView = () => (
-    <p>This ia an Notes View</p>
+    <AppContext.Consumer>
+        {(context) => (
+            <ListWrapper items={context.note}/>
+        )}
+    </AppContext.Consumer>
 );
 
 export default NotesView;

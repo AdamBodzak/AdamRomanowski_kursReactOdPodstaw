@@ -1,7 +1,13 @@
 import React from 'react';
+import ListWrapper from '../../components/ListWraper/ListWrapwer';
+import AppContext from '../../context';
 
-const TwittersView = () => (
-    <p>This ia an Twitter View</p>
+const TwitterView = () => (
+    <AppContext.Consumer>
+        {(context) => (
+            <ListWrapper items={context.twitter}/>
+        )}
+    </AppContext.Consumer>
 );
 
-export default TwittersView;
+export default TwitterView;

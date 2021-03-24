@@ -43,7 +43,7 @@ const { type } = this.state
       <AppContext.Consumer>
         {(context) => (
           <div className={styles.wrapper}>
-            <Title>Add new {descriptions.[type]}</Title>
+            <Title>Add new {descriptions[type]}</Title>
             <form
               autoComplete='off'
               className={styles.form}
