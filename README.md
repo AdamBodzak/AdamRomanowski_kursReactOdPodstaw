@@ -29,3 +29,8 @@ Funkcjonalności stworzone w ramach kursu:
     * dodanie przycisku zamykania formularz
     * dodanie przycisku "add new item" do formularza
 ***
+
+**Własne funkcjonalności aplikacji stworzone po za kursem:**
+
+1. dodanie stanu początkowego
+2. dodanie przycisku usuwającego dany wpis

@@ -3,27 +3,38 @@ import PropTypes from 'prop-types';
 import Button from '../../Button/Button';
 import styles from "./ListItem.module.scss";
 import Title from '../../Title/Title';
+import AppContext from '../../../context';
 
-const ListItem = ({ image, title, description, link }) => {
+const ListItem = ({ image, title, description, link, type }) => {
   const ImageTag = image ? 'img' : 'div';
-
   return(
-    <li className={styles.wrapper}>
-      {image &&
-        <ImageTag
-          src={image}
-          className={image ? styles.image : styles.imageNone }
-          alt={title}
-        />
+    <AppContext.Consumer>
+      {
+        (context) => (
+          <li className={styles.wrapper}>
+            {image &&
+              <ImageTag
+                src={image}
+                className={image ? styles.image : styles.imageNone }
+                alt={title}
+              />
+            }
+            <div>
+              <Title>{title}</Title>
+              <p className={styles.description}>{description}</p>
+              {link &&
+                <Button href={link}>visit twitter page</Button>
+              }
+            </div>
+            <button
+              className={styles.closeButton}
+              onClick={() => (context.removeItem(type, title))}
+            >
+            </button>
+          </li>
+        )
       }
-      <div>
-        <Title>{title}</Title>
-        <p className={styles.description}>{description}</p>
-        {link &&
-          <Button href={link}>visit twitter page</Button>
-        }
-      </div>
-    </li>
+    </AppContext.Consumer>
   )
 };
 

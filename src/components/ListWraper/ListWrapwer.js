@@ -2,12 +2,12 @@ import React from 'react';
 import ListItem from './ListItem/ListItem';
 import styles from "./ListWrapper.module.scss";
 
-const ListWrapper = ({items}) => (
+const ListWrapper = ({items, type}) => (
   <>
   {items.length ? (
       <ul className={styles.wrapper}>
       {items.map(item => (
-        <ListItem key={item.title} {...item} />
+        <ListItem key={item.title} type={type} {...item}/>
       ))}
     </ul>
   ) : (

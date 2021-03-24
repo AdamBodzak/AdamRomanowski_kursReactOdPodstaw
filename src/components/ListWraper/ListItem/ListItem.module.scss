@@ -10,8 +10,10 @@
 }
 
 .wrapper {
+    border-top: 1px solid lightgrey;
     list-style: none;
-    padding: 0px 30px 60px 0;
+    max-width: 1000px;
+    padding: 30px 30px 30px 0;
     display: flex;
     align-items: center;
     position: relative;
@@ -47,4 +49,38 @@
     background: none;
     border: 2px solid #1E58FF;
     color: #1E58FF;
+}
+
+.closeButton {
+    display: block;
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    background-color: #1e58ff;
+    width: 20px;
+    height: 20px;
+
+
+    &::before,
+    &::after {
+        content: '';
+        width: 20px;
+        height: 2px;
+        position: absolute;
+        background: white;
+        display: block;
+        top: 9px;
+        right: 0px;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+
 }

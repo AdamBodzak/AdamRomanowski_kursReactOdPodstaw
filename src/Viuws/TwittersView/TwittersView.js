@@ -5,7 +5,7 @@ import AppContext from '../../context';
 const TwitterView = () => (
     <AppContext.Consumer>
         {(context) => (
-            <ListWrapper items={context.twitter}/>
+            <ListWrapper items={context.twitter} type='twitter'/>
         )}
     </AppContext.Consumer>
 );

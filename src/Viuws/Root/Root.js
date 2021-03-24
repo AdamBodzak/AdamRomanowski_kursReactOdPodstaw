@@ -26,6 +26,17 @@ class Root extends React.Component {
         this.closeModal();
     }
 
+    removeItem = (type, title) => {
+        const arrayTitle = this.state[type];
+        const index = (arrayTitle.map(e => e.title)).indexOf(title);
+        arrayTitle.splice(index, 1);
+
+        this.setState(prevState => ({
+            [type]: arrayTitle
+        }
+        ));
+    }
+
     openModal = () => {
         this.setState({
             isModalOpen: true,
@@ -42,6 +53,8 @@ class Root extends React.Component {
         const contextElements = {
             ...this.state,
             addItem: this.addItem,
+            removeItem: this.removeItem,
+            closeModal: this.closeModal,
         }
 
         return (

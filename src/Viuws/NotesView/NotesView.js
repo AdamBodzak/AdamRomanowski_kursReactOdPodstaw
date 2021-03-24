@@ -5,7 +5,7 @@ import AppContext from '../../context';
 const NotesView = () => (
     <AppContext.Consumer>
         {(context) => (
-            <ListWrapper items={context.note}/>
+            <ListWrapper items={context.note} type='note'/>
         )}
     </AppContext.Consumer>
 );

@@ -5,7 +5,7 @@ import AppContext from '../../context';
 const ArticlesView = () => (
     <AppContext.Consumer>
         {(context) => (
-            <ListWrapper items={context.article}/>
+            <ListWrapper items={context.article} type='article'/>
         )}
     </AppContext.Consumer>
 );
