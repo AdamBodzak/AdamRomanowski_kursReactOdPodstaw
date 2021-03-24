@@ -1,5 +1,7 @@
 # Kurs React od podstaw – w ramach kursu stworzyłem aplikację do zarządzania własnymi wiadomościami z twitter-a, przydatnymi artykułami i własnymi notatkami
 
+### Ostateczna wersja aplikacji dostępna jest pod adresem https://adam-romanowski-kurs-react-od-podstaw.vercel.app/
+
 Skrucony zakres zagadnienień poruszonych w ramach kursu:
 
 1. komponenty funkcyjne.
