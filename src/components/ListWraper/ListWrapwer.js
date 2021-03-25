@@ -6,8 +6,8 @@ const ListWrapper = ({items, type}) => (
   <>
   {items.length ? (
       <ul className={styles.wrapper}>
-      {items.map(item => (
-        <ListItem key={item.title} type={type} {...item}/>
+      {items.map((item, index) => (
+        <ListItem key={item.title} index={index} type={type} {...item}/>
       ))}
     </ul>
   ) : (

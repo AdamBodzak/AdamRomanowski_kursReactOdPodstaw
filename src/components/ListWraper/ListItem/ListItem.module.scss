@@ -55,6 +55,11 @@
     color: #1E58FF;
 }
 
+.buttonWrapper {
+    position: flex;
+    flex-direction: row;
+}
+
 .closeButton {
     display: block;
     color: white;

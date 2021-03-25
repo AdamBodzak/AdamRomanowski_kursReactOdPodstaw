@@ -26,9 +26,8 @@ class Root extends React.Component {
         this.closeModal();
     }
 
-    removeItem = (type, title) => {
+    removeItem = (type, index) => {
         const arrayTitle = this.state[type];
-        const index = (arrayTitle.map(e => e.title)).indexOf(title);
         arrayTitle.splice(index, 1);
 
         this.setState(prevState => ({
@@ -37,9 +36,8 @@ class Root extends React.Component {
         ));
     }
 
-    moveUp = (type, title) => {
+    moveUp = (type, index) => {
         const arrayTitle = this.state[type];
-        const index = (arrayTitle.map(e => e.title)).indexOf(title);
         if (index !== 0) {
             const moveElement =  arrayTitle.splice(index, 1);
             arrayTitle.splice(index-1, 0, ...moveElement);
@@ -51,9 +49,8 @@ class Root extends React.Component {
         };
     }
 
-    moveDown = (type, title) => {
+    moveDown = (type, index) => {
         const arrayTitle = this.state[type];
-        const index = (arrayTitle.map(e => e.title)).indexOf(title);
         const arrLength = arrayTitle.length
         if (index !== (arrLength - 1)) {
             const moveElement =  arrayTitle.splice(index, 1);

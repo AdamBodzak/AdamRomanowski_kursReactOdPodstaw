@@ -5,7 +5,7 @@ import styles from "./ListItem.module.scss";
 import Title from '../../Title/Title';
 import AppContext from '../../../context';
 
-const ListItem = ({ image, title, description, link, type }) => {
+const ListItem = ({ image, title, description, link, type, index }) => {
   const ImageTag = image ? 'img' : 'div';
 
   return(
@@ -29,18 +29,18 @@ const ListItem = ({ image, title, description, link, type }) => {
             </div>
             <button
               className={styles.closeButton}
-              onClick={() => (context.removeItem(type, title))}
+              onClick={() => (context.removeItem(type, index))}
             >
             </button>
             <div className={styles.arrowWrapper}>
               <button
                 className={styles.arrowUp}
-                onClick={() => (context.moveUp(type, title))}
+                onClick={() => (context.moveUp(type, index))}
               >
               </button>
               <button
                 className={styles.arrowDown}
-                onClick={() => (context.moveDown(type, title))}
+                onClick={() => (context.moveDown(type, index))}
               >
               </button>
             </div>
