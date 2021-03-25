@@ -14,13 +14,35 @@ class Root extends React.Component {
         article: [...initialState.article],
         note: [...initialState.note],
         isModalOpen: false,
+        isEditItem: false,
+        editItemValue: {},
     }
 
-    addItem = (e, newItem) => {
+    changeExistingItem = (e, newItem, index) => {
+        e.preventDefault();
+        const arr = this.state[newItem.type].map((e, indexE) =>
+            (index === indexE ? {
+                title: newItem.title,
+                link: newItem.link,
+                image: newItem.image,
+                description: newItem.description,
+            }
+             :
+            e)
+        )
+
+        this.setState(prevState => ({
+            [newItem.type]: [...arr]
+        }));
+
+        this.closeModal();
+    }
+
+    addItem = (e, newItem, index) => {
         e.preventDefault();
 
         this.setState(prevState => ({
-            [newItem.type]: [...prevState[newItem.type], newItem]
+            [newItem.type]: [newItem, ...prevState[newItem.type]]
         }));
 
         this.closeModal();
@@ -30,10 +52,9 @@ class Root extends React.Component {
         const arrayTitle = this.state[type];
         arrayTitle.splice(index, 1);
 
-        this.setState(prevState => ({
+        this.setState({
             [type]: arrayTitle
-        }
-        ));
+        });
     }
 
     moveUp = (type, index) => {
@@ -42,10 +63,9 @@ class Root extends React.Component {
             const moveElement =  arrayTitle.splice(index, 1);
             arrayTitle.splice(index-1, 0, ...moveElement);
 
-            this.setState(prevState => ({
+            this.setState({
                 [type]: arrayTitle
-            }
-            ));
+            });
         };
     }
 
@@ -56,10 +76,9 @@ class Root extends React.Component {
             const moveElement =  arrayTitle.splice(index, 1);
             arrayTitle.splice(index+1, 0, ...moveElement);
 
-            this.setState(prevState => ({
+            this.setState({
                 [type]: arrayTitle
-            }
-            ));
+            });
         };
     }
 
@@ -71,7 +90,16 @@ class Root extends React.Component {
     closeModal = () => {
         this.setState({
             isModalOpen: false,
+            isEditItem: false,
         })
+    }
+
+    editItem = (type, index) => {
+        this.setState(prevState => ({
+            isModalOpen: true,
+            isEditItem: true,
+            editItemValue: {type: type, index: index, ...prevState[type][index]},
+        }));
     }
 
     render() {
@@ -83,6 +111,8 @@ class Root extends React.Component {
             closeModal: this.closeModal,
             moveUp: this.moveUp,
             moveDown: this.moveDown,
+            editItem: this.editItem,
+            changeExistingItem: this.changeExistingItem,
         }
 
         return (
@@ -94,7 +124,7 @@ class Root extends React.Component {
                     <Route path="/articles" component={ArticlesView} />
                     <Route path="/notes" component={NotesView} />
                 </Switch>
-                { isModalOpen && <Modal closeModalFn={this.closeModal}/> }
+                { isModalOpen && <Modal closeModalFn={this.closeModal} editItemValue={this.state.editItemValue} isEditItem={this.state.isEditItem}/> }
                 </AppContext.Provider>
             </BrowserRouter>
         )

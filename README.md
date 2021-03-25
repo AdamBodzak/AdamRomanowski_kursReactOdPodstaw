@@ -8,6 +8,7 @@
 1. dodanie stanu początkowego
 2. dodanie przycisku usuwającego dany wpis
 3. możliwość przesuwania elementów w górę i w dół
+4. możliwość edycji elementów
 
 ***
 Jest to prawie 5 godzinny kurs pod nazwą **React od podstaw** stworzony przez **Adam Romański** dostępny na platformie eduweb.pl pod adresem https://eduweb.pl/programowanie-i-www/reactjs/react-od-podstaw

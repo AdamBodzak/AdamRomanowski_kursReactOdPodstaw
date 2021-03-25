@@ -18,13 +18,13 @@ const descriptions = {
 };
 
 class Form extends React.Component {
-  state ={
-    type: types.twitter,
-    title: '',
-    link: '',
-    image: '',
-    description: '',
-  }
+  state = {
+    type: this.props.isEditItem === true ? this.props.editItemValue.type : types.twitter,
+    title: this.props.isEditItem === true ? this.props.editItemValue.title : '',
+    link: this.props.isEditItem === true ? this.props.editItemValue.link : '',
+    image: this.props.isEditItem === true ? this.props.editItemValue.image : '',
+    description: this.props.isEditItem === true ? this.props.editItemValue.description : '',
+  };
 
 handleRadioButtonChange = (type) => (
   this.setState({type: type})
@@ -43,11 +43,15 @@ const { type } = this.state
       <AppContext.Consumer>
         {(context) => (
           <div className={styles.wrapper}>
-            <Title>Add new {descriptions[type]}</Title>
+            <Title>{context.isEditItem === true ? 'Edit ' : 'Add new '}{descriptions[type]}</Title>
             <form
               autoComplete='off'
               className={styles.form}
-              onSubmit={(e) => (context.addItem(e, this.state))}
+              onSubmit={(e) => (context.isEditItem === true ?
+                context.changeExistingItem(e, this.state, context.editItemValue.index)
+                 :
+                 context.addItem(e, this.state, context.editItemValue.index)
+              )}
             >
               <div className={styles.formOptions}>
                 <RadioButton
@@ -107,7 +111,7 @@ const { type } = this.state
                 name="description"
                 label="Description"
               />
-              <Button>add bew item</Button>
+              <Button>{ context.isEditItem === true ? 'save changes' : 'add bew item'}</Button>
             </form>
           </div>
         )}

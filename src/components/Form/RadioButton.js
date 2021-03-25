@@ -13,7 +13,7 @@ const RadioButton = ({id, checked, changeFn, children}) => (
         />
         <label
             className={styles.classLabel}
-            for={id}
+            htmlFor={id}
         >
             {children}
         </label>

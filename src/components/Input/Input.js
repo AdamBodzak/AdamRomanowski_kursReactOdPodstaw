@@ -27,7 +27,7 @@ const Input = ({tag: Tag, text, name, label, maxLength, required, ...props}) => 
 Input.propTypes = {
     required: PropTypes.bool,
     tag: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     maxLength: PropTypes.number,

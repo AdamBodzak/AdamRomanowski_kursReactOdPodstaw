@@ -7,6 +7,7 @@ import AppContext from '../../../context';
 
 const ListItem = ({ image, title, description, link, type, index }) => {
   const ImageTag = image ? 'img' : 'div';
+  const buttonDescription = type === 'article' ? 'visit page' : 'visit twitter page';
 
   return(
     <AppContext.Consumer>
@@ -24,7 +25,7 @@ const ListItem = ({ image, title, description, link, type, index }) => {
               <Title>{title}</Title>
               <p className={styles.description}>{description}</p>
               {link &&
-                <Button href={link}>visit twitter page</Button>
+                <Button href={link}>{buttonDescription}</Button>
               }
             </div>
             <button
@@ -34,6 +35,7 @@ const ListItem = ({ image, title, description, link, type, index }) => {
             </button>
             <button
               className={styles.editButton}
+              onClick={() => (context.editItem(type, index))}
             >
               edit
             </button>
