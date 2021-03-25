@@ -3,6 +3,13 @@
 ### Ostateczna wersja aplikacji dostępna jest pod adresem https://adam-romanowski-kurs-react-od-podstaw.vercel.app/
 
 ***
+**Własne funkcjonalności aplikacji stworzone po za kursem:**
+
+1. dodanie stanu początkowego
+2. dodanie przycisku usuwającego dany wpis
+3. możliwość przesuwania elementów w górę i w dół
+
+***
 Jest to prawie 5 godzinny kurs pod nazwą **React od podstaw** stworzony przez **Adam Romański** dostępny na platformie eduweb.pl pod adresem https://eduweb.pl/programowanie-i-www/reactjs/react-od-podstaw
 
 Skrócony zakres zagadnień poruszonych w ramach kursu:
@@ -28,9 +35,3 @@ Funkcjonalności stworzone w ramach kursu:
     * wyświetlanie wymaganych pól w zależności od typu dodawanej treści (twitter, artykuł i notatka)
     * dodanie przycisku zamykania formularz
     * dodanie przycisku "add new item" do formularza
-***
-
-**Własne funkcjonalności aplikacji stworzone po za kursem:**
-
-1. dodanie stanu początkowego
-2. dodanie przycisku usuwającego dany wpis
