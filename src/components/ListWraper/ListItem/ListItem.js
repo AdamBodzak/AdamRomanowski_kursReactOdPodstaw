@@ -7,6 +7,7 @@ import AppContext from '../../../context';
 
 const ListItem = ({ image, title, description, link, type }) => {
   const ImageTag = image ? 'img' : 'div';
+
   return(
     <AppContext.Consumer>
       {
@@ -31,6 +32,18 @@ const ListItem = ({ image, title, description, link, type }) => {
               onClick={() => (context.removeItem(type, title))}
             >
             </button>
+            <div className={styles.arrowWrapper}>
+              <button
+                className={styles.arrowUp}
+                onClick={() => (context.moveUp(type, title))}
+              >
+              </button>
+              <button
+                className={styles.arrowDown}
+                onClick={() => (context.moveDown(type, title))}
+              >
+              </button>
+            </div>
           </li>
         )
       }

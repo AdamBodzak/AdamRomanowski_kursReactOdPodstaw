@@ -37,6 +37,35 @@ class Root extends React.Component {
         ));
     }
 
+    moveUp = (type, title) => {
+        const arrayTitle = this.state[type];
+        const index = (arrayTitle.map(e => e.title)).indexOf(title);
+        if (index !== 0) {
+            const moveElement =  arrayTitle.splice(index, 1);
+            arrayTitle.splice(index-1, 0, ...moveElement);
+
+            this.setState(prevState => ({
+                [type]: arrayTitle
+            }
+            ));
+        };
+    }
+
+    moveDown = (type, title) => {
+        const arrayTitle = this.state[type];
+        const index = (arrayTitle.map(e => e.title)).indexOf(title);
+        const arrLength = arrayTitle.length
+        if (index !== (arrLength - 1)) {
+            const moveElement =  arrayTitle.splice(index, 1);
+            arrayTitle.splice(index+1, 0, ...moveElement);
+
+            this.setState(prevState => ({
+                [type]: arrayTitle
+            }
+            ));
+        };
+    }
+
     openModal = () => {
         this.setState({
             isModalOpen: true,
@@ -55,6 +84,8 @@ class Root extends React.Component {
             addItem: this.addItem,
             removeItem: this.removeItem,
             closeModal: this.closeModal,
+            moveUp: this.moveUp,
+            moveDown: this.moveDown,
         }
 
         return (
