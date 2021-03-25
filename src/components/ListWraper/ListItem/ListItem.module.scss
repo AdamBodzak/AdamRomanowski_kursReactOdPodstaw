@@ -60,6 +60,22 @@
     flex-direction: row;
 }
 
+.editButton {
+    display: block;
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    border: none;
+    background-color: #1e58ff;
+    // width: 20px;
+    height: 20px;
+
+    &:hover {
+        background-color: blue;
+    }
+}
+
 .closeButton {
     display: block;
     color: white;

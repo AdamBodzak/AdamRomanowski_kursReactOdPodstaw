@@ -32,6 +32,11 @@ const ListItem = ({ image, title, description, link, type, index }) => {
               onClick={() => (context.removeItem(type, index))}
             >
             </button>
+            <button
+              className={styles.editButton}
+            >
+              edit
+            </button>
             <div className={styles.arrowWrapper}>
               <button
                 className={styles.arrowUp}
