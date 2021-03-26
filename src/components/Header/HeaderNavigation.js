@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './HeaderNavigation.module.scss';
 
 const HeaderNavigation = () => (
-    <nav>
+    <nav className={styles.nav}>
         <ul className={styles.wrapper}>
             <li className={styles.navItem}>
                 <NavLink
