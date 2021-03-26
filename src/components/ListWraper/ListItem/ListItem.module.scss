@@ -16,12 +16,20 @@
     max-width: 1000px;
     padding: 30px 30px 30px 30px;
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
     position: relative;
     animation: appear 0.7s ease;
 
     &:hover  {
         background-color: rgba(212, 212, 212, 0.18);
+    }
+
+    @media screen and (max-width: 400px) {
+        padding: 40px 35px 10px 10px;
+        width: 100%;
+        flex-flow: column nowrap;
+        justify-content: center;
     }
 }
 
@@ -56,8 +64,8 @@
     color: white;
     position: absolute;
     top: 5px;
-    right: 35px;
-    border: #1e58ff;
+    right: 30px;
+    border: none;
     background-color: #1e58ff;
     height: 20px;
     width: 40px;
@@ -65,6 +73,13 @@
 
     &:hover {
         background-color: blue;
+    }
+
+    @media screen and (max-width: 400px) {
+        left: 15px;
+        font-size: 1em;
+        height: 25px;
+        width: 50px;
     }
 }
 
@@ -80,17 +95,16 @@
     height: 20px;
     cursor: pointer;
 
-
     &::before,
     &::after {
         content: '';
-        width: 20px;
+        display: block;
+        width: 18px;
         height: 2px;
         position: absolute;
         background: white;
-        display: block;
         top: 9px;
-        right: 0px;
+        right: 1px;
     }
 
     &::before {
@@ -101,14 +115,32 @@
         transform: rotate(-45deg);
     }
 
-    &:hover {
-        background-color: blue;
+    @media screen and (max-width: 400px) {
+        height: 25px;
+        width: 25px;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            width: 23px;
+            height: 2px;
+            position: absolute;
+            background: white;
+            display: block;
+            top: 11px;
+            right: 1px;
+        }
     }
 }
 
 .arrowWrapper {
     position: absolute;
     display: block;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 70px;
     right: 5px;
 }
 
@@ -127,7 +159,7 @@
     &::before,
     &::after {
         content: '';
-        width: 12px;
+        width: 60%;
         height: 2px;
         background: white;
         position: absolute;
@@ -136,22 +168,39 @@
     }
 
     &::before {
-        transform: translateX(8px) translateY(-1px) rotate(45deg);
+        transform: translateX(1px) translateY(-2px) rotate(-45deg);
+        -ms-transform: translateX(0px) translateY(8px) rotate(-45deg);
     }
 
     &::after {
-        transform: translateX(1px) translateY(-1px) rotate(-45deg);
+        transform: translateX(8px) translateY(-2px) rotate(45deg);
+        -ms-transform: translateX(8px) translateY(8px) rotate(45deg);
     }
 
     &:hover {
         background-color: blue;
+    }
+
+    @media screen and (max-width: 400px) {
+        height: 25px;
+        width: 25px;
+
+        &::before {
+            transform: translateX(1px) translateY(-2px) rotate(-45deg);
+            -ms-transform: translateX(0px) translateY(8px) rotate(-45deg);
+        }
+
+        &::after {
+            transform: translateX(10px) translateY(-2px) rotate(45deg);
+            -ms-transform: translateX(8px) translateY(8px) rotate(45deg);
+        }
     }
 }
 
 .arrowDown {
     display: block;
     border: none;
-    padding: 0;
+    padding: 0 ;
     margin: 0;
     background-color: #1e58ff;
     width: 20px;
@@ -163,7 +212,7 @@
     &::before,
     &::after {
         content: '';
-        width: 12px;
+        width: 60%;
         height: 2px;
         background: white;
         position: absolute;
@@ -172,14 +221,31 @@
     }
 
     &::before {
-        transform: translateX(8px) translateY(-1px) rotate(-45deg);
+        transform: translateX(1px) translateY(-1px) rotate(45deg);
+        -ms-transform: translateX(0px) translateY(9px) rotate(45deg);
     }
 
     &::after {
-        transform: translateX(1px) translateY(-1px) rotate(45deg);
+        transform: translateX(8px) translateY(-1px) rotate(-45deg);
+        -ms-transform: translateX(8px) translateY(9px) rotate(-45deg);
     }
 
     &:hover {
         background-color: blue;
+    }
+
+    @media screen and (max-width: 400px) {
+        height: 25px;
+        width: 25px;
+
+        &::before {
+            transform: translateX(1px) translateY(-1px) rotate(45deg);
+            -ms-transform: translateX(0px) translateY(8px) rotate(45deg);
+        }
+
+        &::after {
+            transform: translateX(10px) translateY(-1px) rotate(-45deg);
+            -ms-transform: translateX(8px) translateY(8px) rotate(-45deg);
+        }
     }
 }

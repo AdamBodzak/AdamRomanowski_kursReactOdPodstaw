@@ -19,5 +19,9 @@
   background-color: #1e58ff;
   border: none;
   color: white;
-  width: 100px;
+  width: 100%;
+
+  @media screen and (max-width: 400px) {
+  font-size: inherit;
+}
 }

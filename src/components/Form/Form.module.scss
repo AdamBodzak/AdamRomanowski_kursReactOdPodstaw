@@ -8,19 +8,24 @@
 
   .form {
     width: 100%;
-    max-width: 350px;
+    max-width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
     button {
       margin-top: 50px;
+      font-size: 1em;
+
     }
+
+
   }
 
 .formOptions {
   display: flex;
-  flex-flow: row nowrap;
-  align-content: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
 }

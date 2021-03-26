@@ -1,4 +1,3 @@
-import React, { Children } from 'react';
 import styles from './RadioButton.module.scss';
 
 const RadioButton = ({id, checked, changeFn, children}) => (

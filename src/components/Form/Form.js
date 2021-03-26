@@ -111,7 +111,7 @@ const { type } = this.state
                 name="description"
                 label="Description"
               />
-              <Button>{ context.isEditItem === true ? 'save changes' : 'add bew item'}</Button>
+              <Button secondary>{ context.isEditItem === true ? 'save changes' : 'add bew item'}</Button>
             </form>
           </div>
         )}

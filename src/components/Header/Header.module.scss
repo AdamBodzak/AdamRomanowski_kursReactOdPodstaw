@@ -9,5 +9,18 @@
         height: 51px;
         width: 140px;
         padding-right: 30px;
+
+        @media screen and (max-width: 400px) {
+
+            padding: 0;
+        }
+    }
+
+    @media screen and (max-width: 620px) {
+        flex-flow: column nowrap;
+        width: 100%;
+        padding: 10px 10px 10px 10px;
+        margin: 0px;
+        font-size: 1.3em;
     }
 }
