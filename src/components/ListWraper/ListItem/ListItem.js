@@ -11,7 +11,7 @@ import { ImageEditSVG,
         ImageArrowDownSVG
       } from '../../iconsSVG';
 
-const ListItem = ({ image, title, description, link, type, index }) => {
+const ListItem = ({ image, title, description, link, type, index, arrLength }) => {
   const ImageTag = image ? 'img' : 'div';
   const buttonDescription = type === 'article' ? 'visit page' : 'visit twitter page';
 
@@ -51,14 +51,21 @@ const ListItem = ({ image, title, description, link, type, index }) => {
               <ImageEditSVG />
             </ButtonSVG>
             <div className={styles.arrowWrapper}>
-              <ButtonSVG
-                id='ImageArrowUpSVG'
-                onClickFn={context.moveUp}
-                type={type}
-                index={index}
-              >
-                <ImageArrowUpSVG />
-              </ButtonSVG>
+              { index === 0 ?
+                <div></div>
+               :
+                <ButtonSVG
+                  id='ImageArrowUpSVG'
+                  onClickFn={context.moveUp}
+                  type={type}
+                  index={index}
+                >
+                  <ImageArrowUpSVG />
+                </ButtonSVG>
+              }
+              { index === arrLength - 1 ?
+                <div></div>
+               :
               <ButtonSVG
                 id='ImageArrowDownSVG'
                 onClickFn={context.moveDown}
@@ -67,6 +74,8 @@ const ListItem = ({ image, title, description, link, type, index }) => {
               >
                 <ImageArrowDownSVG />
               </ButtonSVG>
+              }
+
             </div>
           </li>
         )
