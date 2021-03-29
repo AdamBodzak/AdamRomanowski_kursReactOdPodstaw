@@ -35,6 +35,7 @@ const ListItem = ({ image, title, description, link, type, index }) => {
               }
             </div>
             <ButtonSVG
+              id='ImageRemoveSVG'
               onClickFn={context.removeItem}
               type={type}
               index={index}
@@ -42,6 +43,7 @@ const ListItem = ({ image, title, description, link, type, index }) => {
               <ImageRemoveSVG />
             </ButtonSVG>
             <ButtonSVG
+              id='ImageEditSVG'
               onClickFn={context.editItem}
               type={type}
               index={index}
@@ -50,6 +52,7 @@ const ListItem = ({ image, title, description, link, type, index }) => {
             </ButtonSVG>
             <div className={styles.arrowWrapper}>
               <ButtonSVG
+                id='ImageArrowUpSVG'
                 onClickFn={context.moveUp}
                 type={type}
                 index={index}
@@ -57,6 +60,7 @@ const ListItem = ({ image, title, description, link, type, index }) => {
                 <ImageArrowUpSVG />
               </ButtonSVG>
               <ButtonSVG
+                id='ImageArrowDownSVG'
                 onClickFn={context.moveDown}
                 type={type}
                 index={index}

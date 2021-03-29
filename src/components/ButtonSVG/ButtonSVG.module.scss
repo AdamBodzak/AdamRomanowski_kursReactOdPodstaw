@@ -28,7 +28,7 @@ svg[id=ImageArrowDownSVG] {
 
 // position icon
 
-.ImageEditSVG {
+#ImageEditSVG {
     top: 5px;
     right: 50px;
 
@@ -36,14 +36,14 @@ svg[id=ImageArrowDownSVG] {
         left: 15px;
     }
 }
-.ImageRemoveSVG {
+#ImageRemoveSVG {
     top: 5px;
     right: 5px;
 }
-.ImageArrowUpSVG {
+#ImageArrowUpSVG {
     position: relative;
 }
-.ImageArrowDownSVG {
+#ImageArrowDownSVG {
     position: relative;
 }
 
