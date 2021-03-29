@@ -11,7 +11,7 @@
         padding-right: 30px;
 
         @media screen and (max-width: 400px) {
-
+            align-self: flex-start;
             padding: 0;
         }
     }
@@ -22,5 +22,11 @@
         padding: 10px 10px 10px 10px;
         margin: 0px;
         font-size: 1.3em;
+    }
+}
+
+button {
+    @media screen and (max-width: 400px) {
+    align-self: flex-end;
     }
 }

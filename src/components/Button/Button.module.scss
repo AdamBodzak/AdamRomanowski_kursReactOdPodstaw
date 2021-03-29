@@ -12,6 +12,11 @@
     color: #1e58ff;
     cursor: pointer;
 
+    @media screen and (max-width: 400px) {
+      font-size: 1em;
+      max-width: 100%;
+    }
+
     &:hover {
       background-color: rgba(211, 211, 211, 0.45);
     }
