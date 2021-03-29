@@ -8,8 +8,13 @@
     font-weight: 500;
     background: none;
     border: 2px solid #1e58ff;
+    border-radius: 5px;
     color: #1e58ff;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(211, 211, 211, 0.45);
+    }
   }
 
 .secondary {

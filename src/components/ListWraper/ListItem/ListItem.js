@@ -4,6 +4,12 @@ import Button from '../../Button/Button';
 import styles from "./ListItem.module.scss";
 import Title from '../../Title/Title';
 import AppContext from '../../../context';
+import ButtonSVG from '../../ButtonSVG/ButtonSVG';
+import { ImageEditSVG,
+        ImageRemoveSVG,
+        ImageArrowUpSVG,
+        ImageArrowDownSVG
+      } from '../../iconsSVG';
 
 const ListItem = ({ image, title, description, link, type, index }) => {
   const ImageTag = image ? 'img' : 'div';
@@ -28,28 +34,35 @@ const ListItem = ({ image, title, description, link, type, index }) => {
                 <Button href={link}>{buttonDescription}</Button>
               }
             </div>
-            <button
-              className={styles.closeButton}
-              onClick={() => (context.removeItem(type, index))}
+            <ButtonSVG
+              onClickFn={context.removeItem}
+              type={type}
+              index={index}
             >
-            </button>
-            <button
-              className={styles.editButton}
-              onClick={() => (context.editItem(type, index))}
+              <ImageRemoveSVG />
+            </ButtonSVG>
+            <ButtonSVG
+              onClickFn={context.editItem}
+              type={type}
+              index={index}
             >
-              edit
-            </button>
+              <ImageEditSVG />
+            </ButtonSVG>
             <div className={styles.arrowWrapper}>
-              <button
-                className={styles.arrowUp}
-                onClick={() => (context.moveUp(type, index))}
+              <ButtonSVG
+                onClickFn={context.moveUp}
+                type={type}
+                index={index}
               >
-              </button>
-              <button
-                className={styles.arrowDown}
-                onClick={() => (context.moveDown(type, index))}
+                <ImageArrowUpSVG />
+              </ButtonSVG>
+              <ButtonSVG
+                onClickFn={context.moveDown}
+                type={type}
+                index={index}
               >
-              </button>
+                <ImageArrowDownSVG />
+              </ButtonSVG>
             </div>
           </li>
         )
