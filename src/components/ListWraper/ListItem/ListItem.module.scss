@@ -1,32 +1,15 @@
-@keyframes appear {
-    0% {
-        opacity: 0;
-        top: 35px;
-    }
-    100% {
-        opacity: 1;
-        top: 0;
-    }
-}
-
-
 .wrapper {
     border-top: 1px solid lightgrey;
     list-style: none;
     max-width: 1000px;
-    padding: 30px 30px 30px 30px;
+    padding: 50px 0px 30px 30px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     position: relative;
-    animation: appear 0.7s ease;
-
-    &:hover  {
-        background-color: rgba(212, 212, 212, 0.18);
-    }
 
     @media screen and (max-width: 400px) {
-        padding: 40px 35px 10px 10px;
+        padding: 40px 10px 10px 10px;
         width: 100%;
         flex-flow: column nowrap;
         justify-content: center;
@@ -59,193 +42,16 @@
     flex-direction: row;
 }
 
-.editButton {
-    display: block;
-    color: white;
-    position: absolute;
-    top: 5px;
-    right: 30px;
-    border: none;
-    background-color: #1e58ff;
-    height: 20px;
-    width: 40px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: blue;
-    }
-
-    @media screen and (max-width: 400px) {
-        left: 15px;
-        font-size: 1em;
-        height: 25px;
-        width: 50px;
-    }
-}
-
-.closeButton {
-    display: block;
-    color: white;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    border: none;
-    background-color: #1e58ff;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-
-    &::before,
-    &::after {
-        content: '';
-        display: block;
-        width: 18px;
-        height: 2px;
-        position: absolute;
-        background: white;
-        top: 9px;
-        right: 1px;
-    }
-
-    &::before {
-        transform: rotate(45deg);
-    }
-
-    &::after {
-        transform: rotate(-45deg);
-    }
-
-    @media screen and (max-width: 400px) {
-        height: 25px;
-        width: 25px;
-
-        &::before,
-        &::after {
-            content: '';
-            display: block;
-            width: 23px;
-            height: 2px;
-            position: absolute;
-            background: white;
-            display: block;
-            top: 11px;
-            right: 1px;
-        }
-    }
-}
-
 .arrowWrapper {
-    position: absolute;
     display: block;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    height: 70px;
+    height: 100px;
     right: 5px;
-}
-
-.arrowUp {
-    display: block;
-    border: none;
-    padding: 0;
-    margin: 0;
-    background-color: #1e58ff;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-
-
-    &::before,
-    &::after {
-        content: '';
-        width: 60%;
-        height: 2px;
-        background: white;
-        position: absolute;
-        display: block;
-
-    }
-
-    &::before {
-        transform: translateX(1px) translateY(-2px) rotate(-45deg);
-        -ms-transform: translateX(0px) translateY(8px) rotate(-45deg);
-    }
-
-    &::after {
-        transform: translateX(8px) translateY(-2px) rotate(45deg);
-        -ms-transform: translateX(8px) translateY(8px) rotate(45deg);
-    }
-
-    &:hover {
-        background-color: blue;
-    }
 
     @media screen and (max-width: 400px) {
-        height: 25px;
-        width: 25px;
-
-        &::before {
-            transform: translateX(1px) translateY(-2px) rotate(-45deg);
-            -ms-transform: translateX(0px) translateY(8px) rotate(-45deg);
-        }
-
-        &::after {
-            transform: translateX(10px) translateY(-2px) rotate(45deg);
-            -ms-transform: translateX(8px) translateY(8px) rotate(45deg);
-        }
-    }
-}
-
-.arrowDown {
-    display: block;
-    border: none;
-    padding: 0 ;
-    margin: 0;
-    background-color: #1e58ff;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-
-
-    &::before,
-    &::after {
-        content: '';
-        width: 60%;
-        height: 2px;
-        background: white;
         position: absolute;
-        display: block;
-
-    }
-
-    &::before {
-        transform: translateX(1px) translateY(-1px) rotate(45deg);
-        -ms-transform: translateX(0px) translateY(9px) rotate(45deg);
-    }
-
-    &::after {
-        transform: translateX(8px) translateY(-1px) rotate(-45deg);
-        -ms-transform: translateX(8px) translateY(9px) rotate(-45deg);
-    }
-
-    &:hover {
-        background-color: blue;
-    }
-
-    @media screen and (max-width: 400px) {
-        height: 25px;
-        width: 25px;
-
-        &::before {
-            transform: translateX(1px) translateY(-1px) rotate(45deg);
-            -ms-transform: translateX(0px) translateY(8px) rotate(45deg);
-        }
-
-        &::after {
-            transform: translateX(10px) translateY(-1px) rotate(-45deg);
-            -ms-transform: translateX(8px) translateY(8px) rotate(-45deg);
-        }
+        top: 70px;
     }
 }

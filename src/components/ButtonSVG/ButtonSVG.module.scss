@@ -1,0 +1,124 @@
+.ButtonSVG {
+    display: block;
+    padding: 0;
+    margin: 0;
+    color: transparent;
+    position: absolute;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+
+    @media screen and (max-width: 400px) {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+// size all icon
+svg[id=ImageRemoveSVG],
+svg[id=ImageRemoveSVG],
+svg[id=ImageArrowUpSVG],
+svg[id=ImageArrowDownSVG] {
+    height: 100%;
+    width: 100%;
+}
+
+// position icon
+
+#ImageEditSVG {
+    top: 5px;
+    right: 50px;
+
+    @media screen and (max-width: 400px) {
+        left: 15px;
+    }
+}
+#ImageRemoveSVG {
+    top: 5px;
+    right: 5px;
+}
+#ImageArrowUpSVG {
+    position: relative;
+}
+#ImageArrowDownSVG {
+    position: relative;
+}
+
+// border on hover animation in all icon
+@keyframes buttonHover {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.ButtonSVG:hover rect[id=button_border] {
+    stroke: #1e56ff6e;
+    fill: rgba(211, 211, 211, 0.4);
+    animation: buttonHover 0.5s ease;
+}
+
+// pencil animation on edit button
+@keyframes Pencil {
+    0% {
+        transform: translateX(0px);
+    }
+    15% {
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.ButtonSVG:hover path[id=pencil] {
+    animation: Pencil 2s ease infinite;
+}
+
+// trash animation on remove button
+@keyframes trash {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(70px);
+    }
+}
+
+.ButtonSVG:hover path[id=trash1],
+.ButtonSVG:hover path[id=trash2] {
+    animation: trash 2s ease infinite;
+}
+
+// arrow animation on arrow Up button
+@keyframes arrowUp {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.ButtonSVG:hover path[id=arrow_up] {
+    animation: arrowUp 1s ease infinite;
+}
+
+// arrow animation on arrow Down button
+@keyframes arrowDown {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(15px);
+    }
+}
+
+.ButtonSVG:hover path[id=arrow_down] {
+    animation: arrowDown 1s ease infinite;
+}
