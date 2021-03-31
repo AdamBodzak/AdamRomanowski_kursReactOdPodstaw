@@ -20,20 +20,26 @@ class Root extends React.Component {
 
     changeExistingItem = (e, newItem, index) => {
         e.preventDefault();
-        const arr = this.state[newItem.type].map((e, indexE) =>
-            (index === indexE ? {
-                title: newItem.title,
-                link: newItem.link,
-                image: newItem.image,
-                description: newItem.description,
-            }
-             :
-            e)
-        )
 
-        this.setState(prevState => ({
-            [newItem.type]: [...arr]
-        }));
+        this.setState(
+            function(prevState) {
+                const arr = prevState[newItem.type].map((e, indexE) =>
+                (index === indexE ? {
+                    title: newItem.title,
+                    link: newItem.link,
+                    image: newItem.image,
+                    description: newItem.description,
+                }
+                :
+                    e)
+                )
+                return(
+                    {
+                        [newItem.type]: [...arr]
+                    }
+                )
+            }
+        );
 
         this.closeModal();
     }
@@ -49,37 +55,52 @@ class Root extends React.Component {
     }
 
     removeItem = (type, index) => {
-        const arrayTitle = this.state[type];
-        arrayTitle.splice(index, 1);
-
-        this.setState({
-            [type]: arrayTitle
-        });
+        this.setState(
+            function(prevState) {
+                const arraySearch = prevState[type];
+                arraySearch.splice(index, 1);
+                return(
+                    {
+                        [type]: arraySearch
+                    }
+                )
+            }
+        );
     }
 
     moveUp = (type, index) => {
-        const arrayTitle = this.state[type];
-        if (index !== 0) {
-            const moveElement =  arrayTitle.splice(index, 1);
-            arrayTitle.splice(index-1, 0, ...moveElement);
-
-            this.setState({
-                [type]: arrayTitle
-            });
-        };
+            this.setState(
+                function(prevState) {
+                    const arraySearch = prevState[type];
+                    if (index !== 0) {
+                        const moveElement =  arraySearch.splice(index, 1);
+                        arraySearch.splice(index-1, 0, ...moveElement);
+                    }
+                    return (
+                        {
+                            [type]: arraySearch
+                        }
+                    )
+                }
+            );
     }
 
     moveDown = (type, index) => {
-        const arrayTitle = this.state[type];
-        const arrLength = arrayTitle.length
-        if (index !== (arrLength - 1)) {
-            const moveElement =  arrayTitle.splice(index, 1);
-            arrayTitle.splice(index+1, 0, ...moveElement);
-
-            this.setState({
-                [type]: arrayTitle
-            });
-        };
+            this.setState(
+                function(prevState) {
+                    const arraySearch = prevState[type];
+                    const arrLength = arraySearch.length
+                    if (index !== (arrLength - 1)) {
+                        const moveElement =  arraySearch.splice(index, 1);
+                        arraySearch.splice(index+1, 0, ...moveElement);
+                    }
+                    return(
+                        {
+                            [type]: arraySearch
+                        }
+                    )
+                }
+            )
     }
 
     openModal = () => {
