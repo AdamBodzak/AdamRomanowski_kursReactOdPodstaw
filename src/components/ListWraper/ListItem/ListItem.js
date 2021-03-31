@@ -56,9 +56,10 @@ const ListItem = ({ image, title, description, link, type, index, arrLength }) =
                :
                 <ButtonSVG
                   id='ImageArrowUpSVG'
-                  onClickFn={context.moveUp}
+                  onClickFn={context.moveItem}
                   type={type}
                   index={index}
+                  direction={-1}
                 >
                   <ImageArrowUpSVG />
                 </ButtonSVG>
@@ -68,9 +69,10 @@ const ListItem = ({ image, title, description, link, type, index, arrLength }) =
                :
               <ButtonSVG
                 id='ImageArrowDownSVG'
-                onClickFn={context.moveDown}
+                onClickFn={context.moveItem}
                 type={type}
                 index={index}
+                direction={1}
               >
                 <ImageArrowDownSVG />
               </ButtonSVG>

@@ -68,32 +68,29 @@ class Root extends React.Component {
         );
     }
 
-    moveUp = (type, index) => {
-            this.setState(
-                function(prevState) {
-                    const arraySearch = prevState[type];
-                    if (index !== 0) {
-                        const moveElement =  arraySearch.splice(index, 1);
-                        arraySearch.splice(index-1, 0, ...moveElement);
-                    }
-                    return (
-                        {
-                            [type]: arraySearch
-                        }
-                    )
-                }
-            );
-    }
+    // moveUp = (type, index) => {
+    //         this.setState(
+    //             function(prevState) {
+    //                 const arraySearch = prevState[type];
+    //                 if (index !== 0) {
+    //                     const moveElement =  arraySearch.splice(index, 1);
+    //                     arraySearch.splice(index-1, 0, ...moveElement);
+    //                 }
+    //                 return (
+    //                     {
+    //                         [type]: arraySearch
+    //                     }
+    //                 )
+    //             }
+    //         );
+    // }
 
-    moveDown = (type, index) => {
+    moveItem = (type, index, direction) => {
             this.setState(
                 function(prevState) {
                     const arraySearch = prevState[type];
-                    const arrLength = arraySearch.length
-                    if (index !== (arrLength - 1)) {
-                        const moveElement =  arraySearch.splice(index, 1);
-                        arraySearch.splice(index+1, 0, ...moveElement);
-                    }
+                    const moveElement =  arraySearch.splice(index, 1);
+                    arraySearch.splice(index+direction, 0, ...moveElement);
                     return(
                         {
                             [type]: arraySearch
@@ -130,8 +127,7 @@ class Root extends React.Component {
             addItem: this.addItem,
             removeItem: this.removeItem,
             closeModal: this.closeModal,
-            moveUp: this.moveUp,
-            moveDown: this.moveDown,
+            moveItem: this.moveItem,
             editItem: this.editItem,
             changeExistingItem: this.changeExistingItem,
         }

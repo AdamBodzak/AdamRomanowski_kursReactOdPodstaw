@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './ButtonSVG.module.scss';
 
-const ButtonSVG = ({children, id, onClickFn, type, index}) => {
+const ButtonSVG = ({children, id, onClickFn, type, index, direction}) => {
 
     return(
         <button
             className={styles.ButtonSVG}
             id={styles[id]}
-            onClick={() => (onClickFn(type, index))}
+            onClick={() => (onClickFn(type, index, direction))}
         >{children}
         </button>
     )
