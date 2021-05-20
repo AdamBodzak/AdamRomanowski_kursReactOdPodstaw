@@ -1,4 +1,4 @@
-![image](image.jpg)
+![image](image.svg)
 
 # Kurs React od podstaw – w ramach kursu stworzyłem aplikację do zarządzania własnymi wiadomościami z twitter-a, przydatnymi artykułami i własnymi notatkami
 
